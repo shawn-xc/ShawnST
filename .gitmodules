@@ -1,0 +1,6 @@
+[submodule "learning-notes"]
+	path = learning-notes
+	url = https://github.com/shawn-xc/learning-notes.git
+[submodule "spike"]
+	path = spike
+	url = https://github.com/shawn-xc/spike.git
