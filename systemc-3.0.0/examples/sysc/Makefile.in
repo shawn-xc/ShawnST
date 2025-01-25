@@ -1442,8 +1442,7 @@ async_suspend_EXTRA = \
 	2.1/forkjoin/forkjoin.sln \
 	2.1/forkjoin/forkjoin.vcxproj \
 	2.1/forkjoin/CMakeLists.txt \
-	2.1/forkjoin/Makefile \
-	2.1/forkjoin/README.txt
+	2.1/forkjoin/Makefile 
 
 2_1_reset_signal_is_test_CPPFLAGS = \
 	$(AM_CPPFLAGS)
@@ -1483,8 +1482,7 @@ async_suspend_EXTRA = \
 	2.1/sc_export/sc_export.sln \
 	2.1/sc_export/sc_export.vcxproj \
 	2.1/sc_export/CMakeLists.txt \
-	2.1/sc_export/Makefile \
-	2.1/sc_export/README.txt
+	2.1/sc_export/Makefile 
 
 2_1_sc_report_test_CPPFLAGS = \
 	$(AM_CPPFLAGS)
@@ -1504,8 +1502,7 @@ async_suspend_EXTRA = \
 	2.1/sc_report/sc_report.sln \
 	2.1/sc_report/sc_report.vcxproj \
 	2.1/sc_report/CMakeLists.txt \
-	2.1/sc_report/Makefile \
-	2.1/sc_report/README.txt
+	2.1/sc_report/Makefile 
 
 2_1_scx_barrier_test_CPPFLAGS = \
 	$(AM_CPPFLAGS)
