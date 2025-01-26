@@ -12,13 +12,26 @@ define build_project
             echo "正在编译项目 $(1) ..."; \
             bash ${scriptDir}/build_$(1).sh; \
         else \
-            echo "未找到项目 $(1) 的编译脚本 ${scriptDir}/build_$(1).sh"; \
+            echo "未找到项目 $(1) 的编译脚本: ${scriptDir}/build_$(1).sh"; \
         fi; \
     else \
         echo "请指定要编译的项目(spike, systemc, c, d)"; \
     fi
 endef
 
+# 定义清除函数
+define clear_project
+    @if [ -n "$(1)" ]; then \
+        if [ -f "${scriptDir}/clear_$(1).sh" ]; then \
+            echo "正在clear项目 $(1) ..."; \
+            bash ${scriptDir}/clear_$(1).sh; \
+        else \
+            echo "未找到项目 $(1) 的clear脚本: ${scriptDir}/clear_$(1).sh"; \
+        fi; \
+    else \
+        echo "请指定要clear的项目(spike, systemc, c, d)"; \
+    fi
+endef
 
 ifeq ($(project),all)
 project_list=llvm spike systemc
@@ -37,9 +50,13 @@ systemc:
 build:
 	$(call build_project,$(filter-out $@,$(MAKECMDGOALS)))
 
+clear:
+	$(call clear_project,$(filter-out $@,$(MAKECMDGOALS)))
+
 # 忽略额外参数，避免 Makefile 报错
 %:
 	@true
 
 help:
-	@echo "make build %project  项目编译，%project可选参数为：llvm/spike/systemc, 或者all "
+	@echo "make build %project  项目编译，%project可选参数为：llvm; spike; systemc"
+	@echo "make clear %project  项目编译清空，%project可选参数同make build"

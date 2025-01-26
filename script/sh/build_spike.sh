@@ -13,12 +13,14 @@ enable_endian=("--enable-dual-endian" " ")
 pushd ${SPIKE_DIR} > /dev/null
   if [ ! -d build ]; then
     mkdir build
+    cd build
+    install_path=$(realpath ${SPIKE_DIR}/install)
+    ../configure --prefix="$install_path"
+  else
+    cd build
   fi
 
-  cd build
-  install_path=$(realpath ${SPIKE_DIR}/install)
-  ../configure --prefix="$install_path"
-  make -j 4
+  make -j 6
   make install
 popd > /dev/null
 
