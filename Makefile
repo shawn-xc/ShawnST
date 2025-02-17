@@ -58,5 +58,5 @@ clear:
 	@true
 
 help:
-	@echo "make build %project  项目编译，%project可选参数为：llvm; spike; systemc"
-	@echo "make clear %project  项目编译清空，%project可选参数同make build"
+	@echo 'make build $$project : 项目编译    ，$$project可选参数为：llvm, spike, systemc'
+	@echo 'make clear $$project : 项目编译清空，$$project可选参数：llvm, spike, systemc'
