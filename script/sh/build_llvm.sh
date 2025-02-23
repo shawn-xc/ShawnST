@@ -16,8 +16,8 @@ pushd ${LLVM_DIR} > /dev/null
     mkdir build
     cd build
      
-    cmake ../llvm ${cmake_para} -DLLVM_TARGET_TO_BUILD="RISCV" -DLLVM_ENABLE_PROJECTS="clang"
-    #cmake ../llvm ${cmake_para} -DLLVM_TARGET_TO_BUILD="RISCV" -DLLVM_ENABLE_PROJECTS="clang;clang-tools-extra;lld"
+    #cmake ../llvm ${cmake_para} -DLLVM_TARGET_TO_BUILD="RISCV" -DLLVM_ENABLE_PROJECTS="clang"
+    cmake ../llvm ${cmake_para} -DLLVM_TARGET_TO_BUILD="RISCV" -DLLVM_ENABLE_PROJECTS="clang;clang-tools-extra;lld"
   else
     cd build
   fi

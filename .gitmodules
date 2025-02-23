@@ -1,9 +1,12 @@
 [submodule "learning-notes"]
 	path = learning-notes
-	url = https://github.com/shawn-xc/learning-notes.git
+	url = learning-notes:shawn-xc/learning-notes.git
 [submodule "spike"]
 	path = spike
 	url = https://github.com/shawn-xc/spike.git
 [submodule "ShawnLLVM"]
 	path = ShawnLLVM
-	url = git@github.com:shawn-xc/ShawnLLVM.git
+	url = https://github.com/shawn-xc/ShawnLLVM.git
+[submodule "performanceModel"]
+	path = performanceModel
+	url = https://github.com/shawn-xc/performanceModel.git
