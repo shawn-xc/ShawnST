@@ -15,7 +15,7 @@ define build_project
             echo "未找到项目 $(1) 的编译脚本: ${scriptDir}/build_$(1).sh"; \
         fi; \
     else \
-        echo "请指定要编译的项目(spike, systemc, c, d)"; \
+        echo "请指定要编译的项目(spike, systemc, newlib, d)"; \
     fi
 endef
 
@@ -29,12 +29,12 @@ define clear_project
             echo "未找到项目 $(1) 的clear脚本: ${scriptDir}/clear_$(1).sh"; \
         fi; \
     else \
-        echo "请指定要clear的项目(spike, systemc, c, d)"; \
+        echo "请指定要clear的项目(spike, systemc, newlib, d)"; \
     fi
 endef
 
 ifeq ($(project),all)
-project_list=llvm spike systemc
+project_list=llvm spike systemc newlib
 endif
 
 test:
@@ -58,5 +58,5 @@ clear:
 	@true
 
 help:
-	@echo 'make build $$project : 项目编译    ，$$project可选参数为：llvm, spike, systemc'
-	@echo 'make clear $$project : 项目编译清空，$$project可选参数：llvm, spike, systemc'
+	@echo 'make build $$project : 项目编译    ，$$project可选参数为：llvm, spike, systemc, newlib'
+	@echo 'make clear $$project : 项目编译清空，$$project可选参数：llvm, spike, systemc, newlib'
