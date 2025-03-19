@@ -1,3 +1,5 @@
 systemc-3.0.0/build
 systemc-3.0.0/install
 dev-notes
+newlib-3.3.0/build/
+riscv32/
