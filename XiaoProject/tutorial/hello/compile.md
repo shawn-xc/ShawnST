@@ -1,5 +1,6 @@
 clang-le-link hello.c -o hello.elf
 
+clang-19 -O2 $linkPath/syscall.c $spikeLinker --target=riscv32 --sysroot=$librv32le -fno-builtin-printf -fno-unroll-loops -fno-inline-functions -finline-hint-functions -DPREALLOCATE=1 -static -std=gnu99 -I$librv32le/include -Lgcc/riscvim/ilp32 -fuse-ld=lld -lgcc -DDEBUG
 syscall.c error:
 syscall.c:398:5: error: redefinition of label 'unsigned_number'
   398 |     unsigned_number:
@@ -38,11 +39,8 @@ syscall.c:398:5: error: redefinition of label 'unsigned_number'
 
 
 直接编译IR也报错：
-clang-19 --target=riscv32 -emit-llvm hello.c -S -o hello.ir -I$librv32le/include
-te called after throwing an instance of 'std::logic_error'
-  what():  basic_string::_M_construct null not valid
-PLEASE submit a bug report to https://github.com/llvm/llvm-project/issues/ and include the crash backtrace, preprocessed source, and associated run script.
-Stack dump:
-0.      Program arguments: clang-19 --target=riscv32 -emit-llvm hello.c -S -o hello.ir -I/mnt/e/linux/ShawnST/riscv32/riscv32-unknown-elf/include
-1.      <eof> parser at end of file
-^C
+最新报错：
+/mnt/e/linux/ShawnST/ShawnLLVM/build/bin/clang-19 --target=riscv32 hello.c $linkPath/syscall.c --sysroot=$librv32le $spikeLinker -O2 -o hello.elf  -fno-builtin-printf -fno-unroll-loops -fno-inline-functions -finline-hint-functions -DPREALLOCATE=1 -static -std=gnu99 -I$librv32le/include -Lgcc/riscvim/ilp32 -fuse-ld=lld -lgcc -DDEBUG
+ld.lld: error: unable to find library -lgcc
+ld.lld: error: cannot open /mnt/e/linux/ShawnST/ShawnLLVM/build/lib/clang/19/lib/riscv32/libclang_rt.builtins.a: No such file or directory
+clang-19: error: ld.lld command failed with exit code 1 (use -v to see invocation)
